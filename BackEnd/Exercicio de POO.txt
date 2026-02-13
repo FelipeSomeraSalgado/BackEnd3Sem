@@ -1,0 +1,19 @@
+1) é basicamente uma forma de organizar o código de um programa focado em "objeto" que traz o conceito abstratos representando coisas do mundo real 
+
+2)a Abstração tem o conceito de trazer apenas os assuntos necessários para a classe (EX: para dirigir o carro tem q saber ligar o carro, andar para frente e andar para trás e não é necessário você saber como funciona o motor do carro)
+  O encapsulamento É proteger os dados ou partes internas de um objeto, permitindo acesso apenas de forma controlada (EX: Pensa em um banco você não pode simplesmente entrar e alterar o numero do saldo tem que ter o processo de fazer depósito e etc..)
+  A herança é basicamente quando uma classe filha herda da classe mãe (EX: tipo a classe veiculo ela tem características Velocidade e quantas pessoas cabem no veiculo, agora pense em Carro, Moto e caminhão. Todos os veiculos compartilham da velocidade e a capacidade de gente que cabe no veiculo mas todos tem suas particularidades.)
+  O polimorfismo é quando se comportam de jeitos diferentes com a mesma função(EX: todos os animais emitem um som mais cada animal emite de jeito diferente).
+
+3)Classe é apenas um molde, objeto é o que sai desse molde Exemplo: a classe Carro define modelo e cor; o objeto é um BMW azul.
+
+4)Public: qualquer um tem a possibilidade de ver. Private: apenas a própria classe. Protected: classe e filhas.
+
+5)Métodos são ações, Propriedades são características controladas, Usamos propriedades no lugar de atributos públicos para proteger os dados e manter o encapsulamento.
+
+6)Herança é uma classe que pega atributos e métodos de outra classe. A herança simples é apenas uma classe q herda da classe Pai. Já herança múltipla são varias classes q são herdadas da classe Pai. não suporta pois gera conflitos.
+
+7)É o mesmo método com comportamentos diferentes. Sobrecarga: métodos com mesmo nome e parâmetros diferentes (compilação). Sobrescrita: filho redefine método do pai com override (execução)
+
+8)Classe abstrata tem código pronto e serve de base. Interface é só contrato, sem implementação. Use classe abstrata para reaproveitar código, use interface para definir regras que várias classes devem seguir.
+
