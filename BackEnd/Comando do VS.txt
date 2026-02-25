@@ -1,0 +1,2 @@
+
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=FilmesBD;Trusted_Connection=True;TrustServerCertificate=True;" Microsoft.EntityFrameWorkCore.SqlServer -OutputDir Models -ContextDir BdContextFilme -Context FilmeContext -DataAnnotations
