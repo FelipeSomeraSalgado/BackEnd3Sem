@@ -100,6 +100,7 @@ if (app.Environment.IsDevelopment())
         options.RoutePrefix = string.Empty;
     });
 }
+
 app.UseCors("CorsPolicy");
 
 app.UseStaticFiles();

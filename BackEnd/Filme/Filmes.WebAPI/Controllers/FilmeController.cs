@@ -100,7 +100,7 @@ public class FilmeController : ControllerBase
         var filmeBuscado = _filmeRepository.BuscarPorId(id);
         if (filmeBuscado == null)
             return NotFound("Filme não encontrado! ");
-
+            
         if (!String.IsNullOrWhiteSpace(filme.Titulo))
             filmeBuscado.Titulo = filme.Titulo;
         if (filme.IdGenero != null && filme.IdGenero.ToString() != filmeBuscado.IdGenero)

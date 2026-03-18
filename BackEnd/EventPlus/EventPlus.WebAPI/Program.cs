@@ -1,7 +1,9 @@
 using EventPlus.WebAPI.BdContextEvent;
 using EventPlus.WebAPI.Interfaces;
 using EventPlus.WebAPI.Repositories;
+using EventPlus.WebAPI.Repositorios;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -12,6 +14,10 @@ builder.Services.AddDbContext<EventContext>(options => options.UseSqlServer(buil
 //2. Registrar as Repositories (Injeção de Dependência)
 builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
 builder.Services.AddScoped<ITipoUsuarioRepository, TipoUsuarioRepository>();
+builder.Services.AddScoped<IInstituicaoRepository, InstituicaoRepository>();
+builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+builder.Services.AddScoped<IEventoRepository, EventoRepository>();
+
 
 //Adiciona Swagger
 builder.Services.AddEndpointsApiExplorer();
@@ -25,7 +31,7 @@ builder.Services.AddSwaggerGen(options =>
         Description = "Aplicação para gerenciamento de eventos",
         TermsOfService = new Uri("https://example.com/terms"),
         Contact = new OpenApiContact
-        {
+        { 
             Name = "Felipe Salgado",
             Url = new Uri("https://github.com/FelipeSomeraSalgado")
         },
@@ -56,6 +62,25 @@ builder.Services.AddSwaggerGen(options =>
 
 
 builder.Services.AddControllers();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultChallengeScheme = "JwtBearer";
+    options.DefaultAuthenticateScheme = "JwtBearer";
+})
+    .AddJwtBearer("JwtBearer", options =>
+    {
+        options.TokenValidationParameters = new Microsoft.IdentityModel.Tokens.TokenValidationParameters
+        {
+            ValidateIssuer = true, //Valida quem está solicitando o token
+            ValidateAudience = true, //Valida quem está recebendo o token
+            ValidateLifetime = true, //define se o tempo de expiração do token deve ser validado
+            IssuerSigningKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("event-chave-autenticacao-webapi-dev")), //forma de criptografia e valida a chave de autenticação
+            ClockSkew = TimeSpan.FromMinutes(5), //Valida o tempo de expiração do token
+            ValidIssuer = "api_event", //nome do issuer (de onte está vindo)
+            ValidAudience = "api_event" //nome do audience (para onde está indo)
+        };
+    });
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -78,6 +103,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+
+app.UseAuthentication();
 
 app.MapControllers();
 

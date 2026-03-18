@@ -1,0 +1,30 @@
+Atividade de Fixação API
+
+1. 
+a- builder.Services.AddDbContext<FilmeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+b- IFilmeRepository.
+c- O async Task<IActionResult> 
+
+2.
+a- O que devemos chamar é o GET Gênero
+b- O método List<Filme> Listar()
+c- O ponto de interrogação diz q o titulo pode ser ou não nulo
+
+
+3.
+a- Dentro da program
+b- O [Authorize] impede q usuários anônimos acessem, No código quando o [Authorize] está em cima do [HttpGet] ele n poderá ser acessado
+c- Na Program
+
+4.
+a- A interface solicitada é a IFilmeRepository
+b- Na linha builder.Services.AddScoped<IFilmeRepository, FilmeRepository>();
+c- Não funcionaria a parte de filme Da Error: response status is 500 pois n tem como rodar o Get, Post, Put, Delete do Filme, Mas Do Get ainda funciona
+
+5.
+a- Teria que criar na interface um novo void para a DuracaoMinutos no controller um public IActionResult DuracaoMinutos() e implementar na program tbm porfim ela irá aparecer na API 
+b- builder.Services.AddDbContext<FilmeContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"))); que vai puxar do banco de dados 
+automaticamente sem precisar fazer o processo na mão
+
+6.
+a- PUT(update) ele é uma regra de negócio
