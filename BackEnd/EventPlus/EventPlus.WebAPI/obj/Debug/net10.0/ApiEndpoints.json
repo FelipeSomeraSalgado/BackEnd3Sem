@@ -1,5 +1,95 @@
 [
   {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "Post",
+    "RelativePath": "api/ComentarioEvento",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "comentarioEvento",
+        "Type": "EventPlus.WebAPI.DTO.ComentarioEventoDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "Deletar",
+    "RelativePath": "api/ComentarioEvento/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "BuscarPorIdUsuario",
+    "RelativePath": "api/ComentarioEvento/BuscarPorIdUsuario{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "idEvento",
+        "Type": "System.Guid",
+        "IsRequired": false
+      },
+      {
+        "Name": "id",
+        "Type": "",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "ListarSomenteExibe",
+    "RelativePath": "api/ComentarioEvento/ListarSomenteExibe{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.ComentarioEventoController",
+    "Method": "ListarEvento",
+    "RelativePath": "api/ComentarioEvento/ListarTodos{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EventPlus.WebAPI.Controllers.EventoController",
     "Method": "Listar",
     "RelativePath": "api/Evento",
@@ -200,6 +290,101 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "EventPlus.WebAPI.Controllers.PresencaController",
+    "Method": "Listar",
+    "RelativePath": "api/Presenca",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.PresencaController",
+    "Method": "Inscrever",
+    "RelativePath": "api/Presenca",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "presenca",
+        "Type": "EventPlus.WebAPI.DTO.PresencaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.PresencaController",
+    "Method": "BuscarPorId",
+    "RelativePath": "api/Presenca/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.PresencaController",
+    "Method": "Atualizar",
+    "RelativePath": "api/Presenca/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      },
+      {
+        "Name": "presenca",
+        "Type": "EventPlus.WebAPI.DTO.PresencaDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.PresencaController",
+    "Method": "Deletar",
+    "RelativePath": "api/Presenca/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.PresencaController",
+    "Method": "BuscarMinhas",
+    "RelativePath": "api/Presenca/ListaMinhas/{idUsuario}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "idUsuario",
+        "Type": "System.Guid",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "EventPlus.WebAPI.Controllers.TipoEventoController",
     "Method": "Listar",
     "RelativePath": "api/TipoEvento",
@@ -355,6 +540,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "EventPlus.WebAPI.Controllers.UsuarioController",
+    "Method": "Listar",
+    "RelativePath": "api/Usuario",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {

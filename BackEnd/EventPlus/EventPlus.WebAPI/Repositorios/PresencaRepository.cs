@@ -30,6 +30,11 @@ public class PresencaRepository : IPresencaRepository
         }
     }
 
+    public void Atualizar(Guid id, Presenca presencaAtualizado)
+    {
+        throw new NotImplementedException();
+    }
+
     /// <summary>
     /// Método que busca uma presença por id
     /// </summary>

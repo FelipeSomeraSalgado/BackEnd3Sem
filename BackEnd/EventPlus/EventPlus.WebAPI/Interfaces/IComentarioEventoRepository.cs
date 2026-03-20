@@ -5,7 +5,6 @@ namespace EventPlus.WebAPI.Interfaces;
 public interface IComentarioEventoRepository
 {
     void Cadastrar(ComentarioEvento comentarioEvento);
-
     void Deletar(Guid IdcomentarioEvento);
     List<ComentarioEvento> Listar(Guid IdEvento);
     ComentarioEvento BuscarPorIdUsuario(Guid IdUsuario, Guid IdEvento);

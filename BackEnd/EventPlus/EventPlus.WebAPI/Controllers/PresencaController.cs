@@ -110,7 +110,7 @@ public class PresencaController : ControllerBase
             };
 
             _presencaRepository.Atualizar(id, presencaAtualizado);
-            return StatusCode(204, presencaAtualizado);
+            return StatusCode(200, presencaAtualizado);
         }
         catch (Exception erro)
         {

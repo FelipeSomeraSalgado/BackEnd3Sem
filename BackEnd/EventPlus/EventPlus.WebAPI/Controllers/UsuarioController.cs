@@ -37,6 +37,18 @@ public class UsuarioController : ControllerBase
         }
     }
 
+    [HttpGet]
+    public IActionResult Listar()
+    {
+        try
+        {
+            return Ok(_usuarioRepository.Listar());
+        }
+        catch (Exception erro)
+        {
+            return BadRequest(erro.Message);
+        }
+    }
     /// <summary>
     /// Endpoint da API que faz a chamada para o método de cadastrar um usuário
     /// </summary>

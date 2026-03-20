@@ -8,6 +8,6 @@ public interface IPresencaRepository
     void Deletar(Guid id);
     List<Presenca> Listar();
     Presenca BuscarPorId(Guid id);
-    void Atualizar(Guid id);
+    void Atualizar(Guid id, Presenca presencaAtualizado);
     List<Presenca> ListarMinhas(Guid IdUsuario);
 }
