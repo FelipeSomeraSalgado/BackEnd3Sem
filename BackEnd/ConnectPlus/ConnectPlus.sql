@@ -1,0 +1,26 @@
+CREATE DATABASE ConnectPlus;
+GO
+
+USE ConnectPlus;
+GO
+
+
+CREATE TABLE TipoContato(
+ IdTipoContato UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
+ Titulo NVARCHAR(100)
+
+ );
+ GO
+ 
+CREATE TABLE Contato(
+  IdContato UNIQUEIDENTIFIER PRIMARY KEY DEFAULT ((NEWID())),
+  Nome NVARCHAR(100) NOT NULL,
+  FormaContato VARCHAR(100) NOT NULL,
+  Imagem NVARCHAR(100),
+  IdTipoContato UNIQUEIDENTIFIER FOREIGN KEY REFERENCES TipoContato(IdTipoContato)
+  
+);
+GO
+
+SELECT * FROM TipoContato;
+SELECT * FROM Contato;
