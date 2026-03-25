@@ -26,8 +26,11 @@ builder.Services.AddScoped<IPresencaRepository, PresencaRepository>();
 var endpoint = "https://moderatorservice-marcos.cognitiveservices.azure.com";
 var apikey = "";
 
-var client = new ContentSafetyClient(new Uri(endpoint), new AzureKeyCredential(apikey));
-builder.Services.AddSingleton(client);
+if (!string.IsNullOrWhiteSpace(apikey))
+{
+    var client = new ContentSafetyClient(new Uri(endpoint), new Azure.AzureKeyCredential(apikey));
+    builder.Services.AddSingleton(client);
+}
 
 //Adiciona Swagger
 builder.Services.AddEndpointsApiExplorer();
