@@ -98,11 +98,46 @@ namespace ConnectPlus.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult Atualizar(Guid id, Contato contato)
+        public async Task<IActionResult> Atualizar(Guid id, [FromForm] ContatoDTO contatoAtualizado)
         {
             try
             {
-                _contatoRepository.Atualizar(id, contato);
+                var contatoBuscado = _contatoRepository.BuscarPorId(id);
+
+                if (contatoBuscado == null)
+                {
+                    return NotFound("Contato não encontrado.");
+                }
+
+                if (contatoAtualizado.Imagem != null && contatoAtualizado.Imagem.Length > 0)
+                {
+                    var extensao = Path.GetExtension(contatoAtualizado.Imagem.FileName);
+                    var nomeArquivo = $"{Guid.NewGuid()}{extensao}";
+
+                    var pastaRelativa = "wwwroot/Imagens";
+                    var caminhoPasta = Path.Combine(Directory.GetCurrentDirectory(), pastaRelativa);
+
+                    if (!Directory.Exists(caminhoPasta))
+                    {
+                        Directory.CreateDirectory(caminhoPasta);
+                    }
+
+                    var caminhoCompleto = Path.Combine(caminhoPasta, nomeArquivo);
+
+                    using (var stream = new FileStream(caminhoCompleto, FileMode.Create))
+                    {
+                        await contatoAtualizado.Imagem.CopyToAsync(stream);
+                    }
+
+                    contatoBuscado.Imagem = nomeArquivo;
+                }
+
+                contatoBuscado.Nome = contatoAtualizado.Nome!;
+                contatoBuscado.FormaContato = contatoAtualizado.FormaContato!;
+                contatoBuscado.IdTipoContato = contatoAtualizado.IdTipoContato;
+
+                _contatoRepository.Atualizar(id, contatoBuscado);
+
                 return Ok("Contato atualizado com sucesso!");
             }
             catch (Exception erro)

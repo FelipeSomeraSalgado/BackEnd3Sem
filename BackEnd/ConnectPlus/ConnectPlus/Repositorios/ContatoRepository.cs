@@ -15,14 +15,15 @@ public class ContatoRepository : IContatoRepository
 
     public void Atualizar(Guid id, Contato contato)
     {
-        var ContatoBuscado = _context.Contatos.Find(id);
+        var contatoBuscado = _context.Contatos.Find(id);
 
-        if (ContatoBuscado != null)
+        if (contatoBuscado != null)
         {
-            ContatoBuscado.Nome = contato.Nome;
-            ContatoBuscado.FormaContato = contato.FormaContato;
-            ContatoBuscado.Imagem = contato.Imagem;
-            
+            contatoBuscado.Nome = contato.Nome;
+            contatoBuscado.FormaContato = contato.FormaContato;
+            contatoBuscado.Imagem = contato.Imagem;
+            contatoBuscado.IdTipoContato = contato.IdTipoContato; 
+
             _context.SaveChanges();
         }
     }

@@ -1,1 +1,5 @@
 wwwroot\Imagens\823fe716-3dde-4e67-a19c-f5fa80161cde.jpg
+wwwroot\Imagens\b3fc1c86-6317-4197-a7fe-2a5b47d38c5d.jpg
+wwwroot\Imagens\9adb2440-a685-4f2f-9811-15db05d497a5.jpg
+wwwroot\Imagens\ebbbeee8-9046-4012-8196-f536b6a7d21d.jpg
+wwwroot\Imagens\1d9b722f-5761-474f-90c4-c7f72794efb4.jpg
