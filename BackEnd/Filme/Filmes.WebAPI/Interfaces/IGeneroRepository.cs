@@ -4,10 +4,10 @@ namespace Filmes.WebAPI.Interfaces;
 
 public interface IGeneroRepository
 {
-    void Cadastrar(Genero novoGenero);
+    Genero BuscarPorId(Guid id);
     List<Genero> Listar();
+    void Cadastrar(Genero novoGenero);
+    void Deletar(Guid id);
     void AtualizarIdCorpo(Genero generoAtualizado);
     void AtualizarIdUrl(Guid id, Genero generoAtualizado);
-    void Deletar(Guid id);
-    Genero BuscarPorId(Guid id);
 }

@@ -89,7 +89,7 @@ namespace ConnectPlus.Controllers
             try
             {
                 _contatoRepository.Cadastrar(contato);
-                return StatusCode(201);
+                return StatusCode(201, novoContato);
             }
             catch (Exception e)
             {

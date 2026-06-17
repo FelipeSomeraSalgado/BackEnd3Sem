@@ -1,0 +1,6 @@
+C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\ConnectPlus\FilmesBD\obj\Debug\net10.0\FilmesBD.csproj.AssemblyReference.cache
+C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\ConnectPlus\FilmesBD\obj\Debug\net10.0\FilmesBD.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\ConnectPlus\FilmesBD\obj\Debug\net10.0\FilmesBD.AssemblyInfoInputs.cache
+C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\ConnectPlus\FilmesBD\obj\Debug\net10.0\FilmesBD.AssemblyInfo.cs
+C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\ConnectPlus\FilmesBD\obj\Debug\net10.0\FilmesBD.csproj.CoreCompileInputs.cache
+C:\Users\46725344801\Desktop\BackEnd3Sem\BackEnd\ConnectPlus\FilmesBD\obj\Debug\net10.0\FilmesBD.sourcelink.json

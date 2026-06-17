@@ -11,7 +11,7 @@ using Microsoft.OpenApi;
 var builder = WebApplication.CreateBuilder(args);
 
 //1. Configurar o Contexto do Banco de Dados 
-builder.Services.AddDbContext<EventContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+IServiceCollection serviceCollection = builder.Services.AddDbContext<EventContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 //2. Registrar as Repositories (Injeção de Dependência)
 builder.Services.AddScoped<ITipoEventoRepository, TipoEventoRepository>();
@@ -115,9 +115,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseAuthorization();
+app.UseAuthentication(); 
 
-app.UseAuthentication();
+app.UseAuthorization();  
 
 app.MapControllers();
 

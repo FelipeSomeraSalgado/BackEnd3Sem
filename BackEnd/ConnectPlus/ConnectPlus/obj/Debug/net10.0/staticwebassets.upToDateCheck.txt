@@ -3,3 +3,6 @@ wwwroot\Imagens\b3fc1c86-6317-4197-a7fe-2a5b47d38c5d.jpg
 wwwroot\Imagens\9adb2440-a685-4f2f-9811-15db05d497a5.jpg
 wwwroot\Imagens\ebbbeee8-9046-4012-8196-f536b6a7d21d.jpg
 wwwroot\Imagens\1d9b722f-5761-474f-90c4-c7f72794efb4.jpg
+wwwroot\Imagens\9374682a-5e08-4155-8fc1-a616d7effd61.jpg
+wwwroot\Imagens\1ed3be0c-a326-4b1d-8bb6-75302fe7a849.jpg
+wwwroot\Imagens\feef6d6b-2117-4821-adbc-16837b27c767.jpg

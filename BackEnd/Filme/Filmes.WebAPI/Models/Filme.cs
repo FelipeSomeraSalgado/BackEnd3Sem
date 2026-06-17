@@ -1,8 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Filmes.WebAPI.Models;
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 namespace Filmes.WebAPI.Models;
 
@@ -26,6 +26,7 @@ public partial class Filme
     [Unicode(false)]
     public string? IdGenero { get; set; }
 
+    [JsonIgnore]
     [ForeignKey("IdGenero")]
     [InverseProperty("Filmes")]
     public virtual Genero? IdGeneroNavigation { get; set; }

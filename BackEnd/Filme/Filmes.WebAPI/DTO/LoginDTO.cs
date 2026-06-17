@@ -4,9 +4,9 @@ namespace Filmes.WebAPI.DTO;
 
 public class LoginDTO
 {
-    [Required(ErrorMessage = "O campo Email é obrigatório! ")]
-    public string Email { get; set; }
+    [Required(ErrorMessage = "O Email do usuário é obrigatório")]
+    public string? Email { get; set; }
 
-    [Required(ErrorMessage = "O campo Senha é obrigatória! ")]
-    public string Senha { get; set; }
+    [Required(ErrorMessage = "A Senha do usuário é obrigatório")]
+    public string? Senha { get; set; }
 }

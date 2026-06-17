@@ -1,14 +1,13 @@
-﻿using Filmes.WebAPI.BdContextFilme;
-using Filmes.WebAPI.Interfaces;
+﻿using Filmes.WebAPI.Interfaces;
 using Filmes.WebAPI.Models;
 using Filmes.WebAPI.Utils;
+
 
 namespace Filmes.WebAPI.Repositories;
 
 public class UsuarioRepository : IUsuarioRepository
 {
     private readonly FilmeContext _context;
-
     public UsuarioRepository(FilmeContext context)
     {
         _context = context;
@@ -16,12 +15,14 @@ public class UsuarioRepository : IUsuarioRepository
 
     public Usuario BuscarPorEmailESenha(string email, string senha)
     {
-        Usuario usuarioBuscado = _context.Usuarios.FirstOrDefault(u => u.Email == email)!;
         try
         {
+            Usuario usuarioBuscado = _context.Usuarios.FirstOrDefault(u => u.Email == email)!;
+
             if (usuarioBuscado != null)
             {
                 bool confere = Criptografia.CompararHash(senha, usuarioBuscado.Senha);
+
                 if (confere)
                 {
                     return usuarioBuscado;
@@ -29,12 +30,13 @@ public class UsuarioRepository : IUsuarioRepository
             }
             return null!;
         }
-        catch (Exception e)
+        catch (Exception)
         {
 
-            return null!;
+            throw;
         }
     }
+
     public Usuario BuscarPorId(Guid id)
     {
         throw new NotImplementedException();
@@ -45,10 +47,11 @@ public class UsuarioRepository : IUsuarioRepository
         try
         {
             novoUsuario.IdUsuario = Guid.NewGuid().ToString();
-            novoUsuario.Senha = Criptografia.GerarHash(novoUsuario.Senha!);
+
+            //Gera o hash da senha antes de salvar no banco
+            novoUsuario.Senha = Criptografia.GerarHash(novoUsuario.Senha);
 
             _context.Usuarios.Add(novoUsuario);
-
             _context.SaveChanges();
         }
         catch (Exception)

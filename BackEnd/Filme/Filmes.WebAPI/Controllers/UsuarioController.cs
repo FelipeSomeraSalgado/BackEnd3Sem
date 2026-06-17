@@ -1,32 +1,34 @@
 ﻿using Filmes.WebAPI.Interfaces;
 using Filmes.WebAPI.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace Filmes.WebAPI.Controllers;
+namespace FilmesMoura1.WebAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
 public class UsuarioController : ControllerBase
 {
-    private readonly IUsuarioRepository _usuarioRepository; 
+    private readonly IUsuarioRepository _usuarioRepostiroy;
 
     public UsuarioController(IUsuarioRepository usuarioRepository)
     {
-        _usuarioRepository = usuarioRepository;
+        _usuarioRepostiroy = usuarioRepository;
     }
 
     [HttpPost]
+    //Cadastra um novo usuário
     public IActionResult Post(Usuario novoUsuario)
     {
         try
         {
-            _usuarioRepository.Cadastrar(novoUsuario);
-            return StatusCode(201, novoUsuario);
+            _usuarioRepostiroy.Cadastrar(novoUsuario);
+            return StatusCode(201);
         }
-        catch (Exception ex)
+        catch (Exception erro)
         {
-            return BadRequest(ex.Message);
+
+            return BadRequest(erro.Message);
         }
     }
+
 }
